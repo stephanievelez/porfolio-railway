@@ -12,9 +12,10 @@ import pathlib #you need all 3 requirements.txt
 #     learn_inf = load_learner(EXPORT_PATH)
 # finally:
 #     pathlib.PosixPath = posix_backup
-
-temp = pathlib.PosixPath #otherwise you'll be an posixerror
-pathlib.PosixPath = pathlib.PureWindowsPath  #when loading the fastai model
+plt = platform.system()
+if plt == "Windows": pathlib.PosixPath = pathlib.PureWindowsPath
+#temp = pathlib.PosixPath #otherwise you'll be an posixerror
+#pathlib.PosixPath = pathlib.PureWindowsPath  #when loading the fastai model
 from django.shortcuts import render
 import os
 import fastbook
