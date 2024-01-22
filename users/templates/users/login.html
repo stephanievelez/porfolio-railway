@@ -1,0 +1,19 @@
+{% extends "learning_logs/base.html" %}
+{% load bootstrap3 %}
+
+{% block header %}
+<h2>Log in to your account.</h2>
+{% endblock header %}
+
+{% block content %}
+
+<form method="post" action="{% url 'users:login' %}" class="form"> {#    the login view sends a form to the template and it's up to us to display it#}
+        {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+        <button name="submit" class="btn btn-primary">log in</button>
+    {% endbuttons %}
+        <input type="hidden" name="next" value="{% url 'learning_logs:index' %}" />  {#  this hidden input element ('next) allows us to send the user back to the home page after they log in#}
+    </form>
+{% endblock content %}
+```

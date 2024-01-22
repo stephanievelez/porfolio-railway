@@ -1,0 +1,35 @@
+{% extends "learning_logs/base.html" %} 
+{% load bootstrap3 %}
+
+{% block header %}
+    <h2>{{image.name}}</h2>
+{% endblock header %}
+
+{% block content %}
+
+{#<div class="alert alert-warning alert-dismissible fade show" role="alert">#}
+{#    <strong>'successfully uploaded'</strong>#}
+{#    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>#}
+{#  </div>#}
+
+{# <div class="panel panel-default">#}
+{#            <div class="panel-heading">#}
+
+            <img src="{{image.main_img.url }}" style="width: 25%; float: left; margin-right: 10px;" />
+                <h3>Prediction: {{prediction}}</h3>
+                <h3>Probability: {{probability|floatformat:2}}</h3>
+{#            </div>#}
+{# </div>#}
+
+
+
+{% endblock content %}
+
+
+
+{#      <form method="post" enctype="multipart/form-data">}#}
+{#        {% csrf_token %}#}
+{#        <input type="file" name="image" accept="image/*">#}
+{##}
+{#        <button type="submit">Predict</button>#}
+{#    </form>#}

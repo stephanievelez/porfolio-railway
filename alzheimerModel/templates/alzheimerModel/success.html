@@ -1,0 +1,32 @@
+{% extends "learning_logs/base.html" %} 
+
+{% block content %}
+
+<div class="alert alert-warning alert-dismissible fade show col-md-4" role="alert">
+    <strong>'successfully uploaded'</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+  
+  {% for image in images %}
+    <div class = "col-md-4">
+
+        {{image.name}}
+        <img src="{{image.main_img.url }}" class="img-responsive" style="width: 75%; float: left; margin-right: 10px;" />
+        {{ image.prediction}}
+
+    </div>
+
+    {% endfor %}
+
+
+{% endblock content %}
+
+
+
+{#      <form method="post" enctype="multipart/form-data">}#}
+{#        {% csrf_token %}#}
+{#        <input type="file" name="image" accept="image/*">#}
+{##}
+{#        <button type="submit">Predict</button>#}
+{#    </form>#}

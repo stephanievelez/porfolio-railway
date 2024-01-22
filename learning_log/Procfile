@@ -1,0 +1,5 @@
+
+web: gunicorn 'learning_log.wsgi' --timeout 30
+=======
+web: gunicorn 'name-of-application.wsgi' --timeout 30
+>>>>>>> bcdf99e1f1f6e4a4b9461439300eb66b6b901427

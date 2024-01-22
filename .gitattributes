@@ -1,0 +1,5 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+main.psd filter=lfs diff=lfs merge=lfs -text
+ll_env/Lib/site-packages/torch/lib/torch_cpu.dll filter=lfs diff=lfs merge=lfs -text
+ll_env/Lib/site-packages/torch/lib/dnnl.lib filter=lfs diff=lfs merge=lfs -text

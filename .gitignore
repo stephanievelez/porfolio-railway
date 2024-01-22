@@ -1,0 +1,8 @@
+ll_env/Lib/
+ll_env/
+ll_env/Lib/site-packages/torch/lib/dnnl.lib
+ll_env/Lib/site-packages/torch/lib/torch_cpu.dll
+__pycache__/
+*.sqlite3
+.idea/workspace.xml
+.idea/
