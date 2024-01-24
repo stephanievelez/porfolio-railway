@@ -3,9 +3,6 @@ from django.http import HttpResponse
 from .forms import AlzheimerModel
 from .models import Alzheimer
 from django.http import JsonResponse
-import fastbook
-fastbook.setup_book()
-from fastbook import *
 from fastai.vision.widgets import *
 from .model import model
 from django.contrib.auth.decorators import login_required

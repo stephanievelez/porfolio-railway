@@ -3,6 +3,7 @@ import urllib.request
 import numpy as np
 import platform
 import pathlib #you need all 3 requirements.txt
+from fastai.learner import load_learner
 
 
 #adding due to posixerror
@@ -18,10 +19,6 @@ if plt == "Windows": pathlib.PosixPath = pathlib.PureWindowsPath
 #pathlib.PosixPath = pathlib.PureWindowsPath  #when loading the fastai model
 from django.shortcuts import render
 import os
-import fastbook
-fastbook.setup_book()
-from fastbook import *
-from fastai.vision.widgets import *
 
 def loading_path():
     absolute_path = os.path.dirname(sys.argv[0])
