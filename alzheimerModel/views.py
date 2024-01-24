@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .forms import AlzheimerModel
 from .models import Alzheimer
 from django.http import JsonResponse
-from fastai.vision.widgets import *
+from fastai.vision.all import PILImage
 from .model import model
 from django.contrib.auth.decorators import login_required
 
