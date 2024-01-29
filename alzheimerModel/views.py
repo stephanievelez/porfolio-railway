@@ -7,10 +7,13 @@ from fastai.vision.all import PILImage
 from .model import model
 from django.contrib.auth.decorators import login_required
 
+from .model import neptune
+
 # Create your views here.
 #@login_required
 def myModel(request):
-    learner = model.load_learner("alzheimerModel/model/export.pkl")
+    
+    # learner = model.load_learner("alzheimerModel/model/export.pkl")
     if request.method == 'POST':
         form = AlzheimerModel(request.POST, request.FILES) #once a request is POST we create an instance and the image will be stored under request.FILES and saved into the database
         if form.is_valid():
@@ -33,7 +36,8 @@ def myModel(request):
 #@login_required
 def make_prediction(request):
     """get the scoring parameters entered in the uploaded image and return the prediction"""
-    learner = model.load_learner("alzheimerModel/model/export.pkl") #this might change location once we deploy
+    learner = neptune.model()
+    #learner = model.load_learner("alzheimerModel/model/export.pkl") #this might change location once we deploy
     object = Alzheimer.objects.last()
     img_url = object.main_img.path
 
