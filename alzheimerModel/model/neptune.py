@@ -2,10 +2,17 @@ import neptune
 import os
 
 
-model = neptune.init_model(
-    name="Prediction model",
-    key="AL-MOD", 
-    project="stephanievelez1986/alzheimer-model", 
+# model = neptune.init_model(
+#     name="Prediction model",
+#     key="AL-MOD", 
+#     project="stephanievelez1986/alzheimer-model", 
+#     api_token="eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI3NmJhZDY5Mi0wYjJlLTQ0YjItYmEwOS0yZjM2ODhkYjE0YmEifQ==", # your credentials
+# )
+
+
+model_version = neptune.init_model_version(
+    model="AL-MOD",
+    project="stephanievelez1986/alzheimer-model",
     api_token="eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI3NmJhZDY5Mi0wYjJlLTQ0YjItYmEwOS0yZjM2ODhkYjE0YmEifQ==", # your credentials
 )
 
