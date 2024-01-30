@@ -17,16 +17,16 @@ model_version = neptune.init_model_version(
 )
 
 # assign the classification model metadata to model object
-model_info = {"size_limit": 10, "size_units": "MB"}
-model["model"] = model_info
+# model_info = {"size_limit": 10, "size_units": "MB"}
+# model["model"] = model_info
 
 # upload the model to registry
 absolute_path = os.path.dirname(sys.argv[0])
 model_path = os.path.join(absolute_path, 'export.pkl')
-model["model/signature"].upload(model_path)
+model_version["model/binary"].upload(model_path)
 
 # track dataset version
 #model["data/train_and_test"].track_files("test.data")
 
 # top the session
-#model.stop()
+model_version.stop()
