@@ -1,6 +1,7 @@
 import neptune
 import os
 import sys
+import io
 
 import platform
 import pathlib #you need all 3 requirements.txt
@@ -35,13 +36,12 @@ def model():
     absolute_path = os.path.dirname(sys.argv[0])
     model_path = os.path.join(absolute_path, 'export.pkl')
     path = model_version["model/binary"].upload(model_path)
+    learner = load_learner(io.BytesIO(next(iter(path))))
 
-# track dataset version
-#model["data/train_and_test"].track_files("test.data")
-    learner = load_learner(path)
+   
     
     return learner
 # top the session
-    model_version.stop()
+    #model_version.stop()
     
-    return model_version
+   # return model_version
