@@ -5,7 +5,7 @@ from .models import Alzheimer
 from django.http import JsonResponse
 from fastai.vision.all import PILImage
 from .model import model, neptune
-
+import platform
 import pathlib #you need all 3 requirements.txt
 from fastai.learner import load_learner
 
