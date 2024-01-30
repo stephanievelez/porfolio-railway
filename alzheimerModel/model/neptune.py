@@ -2,6 +2,15 @@ import neptune
 import os
 import sys
 
+import platform
+import pathlib #you need all 3 requirements.txt
+from fastai.learner import load_learner
+
+plt = platform.system()
+if plt == "Windows": pathlib.PosixPath = pathlib.PureWindowsPath
+
+
+
 
 # model = neptune.init_model(
 #     name="Prediction model",
@@ -25,11 +34,13 @@ def model():
 # upload the model to registry
     absolute_path = os.path.dirname(sys.argv[0])
     model_path = os.path.join(absolute_path, 'export.pkl')
-    model_version["model/binary"].upload(model_path)
+    path = model_version["model/binary"].upload(model_path)
 
 # track dataset version
 #model["data/train_and_test"].track_files("test.data")
-
+    learner = load_learner(path)
+    
+    return learner
 # top the session
     model_version.stop()
     
