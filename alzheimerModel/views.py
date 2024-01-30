@@ -44,7 +44,7 @@ def make_prediction(request):
     img = PILImage.create(img_url)
     pred, pred_idx, probs = learner.predict(img)
     result = probs[pred_idx]
-
+    learner.stop()
 
 
 
