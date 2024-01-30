@@ -35,7 +35,7 @@ def model():
 # upload the model to registry
     absolute_path = os.path.dirname(sys.argv[0])
     model_path = os.path.join(absolute_path, 'export.pkl')
-    model_version["model/binary"].upload(model_path)
+    path = model_version["model/binary"].upload(model_path)
     #learner = load_learner(io.BytesIO(next(iter(path))))
 
    
@@ -44,4 +44,4 @@ def model():
 # top the session
     #model_version.stop()
     
-    return model_version
+    return path

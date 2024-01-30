@@ -39,11 +39,11 @@ def myModel(request):
 #@login_required
 def make_prediction(request):
     """get the scoring parameters entered in the uploaded image and return the prediction"""
-    print(neptune.model())
+    
     path=neptune.model().download()
-    print(path)
+    
     learner = load_learner(path)
-    print(learner)
+    
     #learner = model.load_learner("alzheimerModel/model/export.pkl") #this might change location once we deploy
     object = Alzheimer.objects.last()
     img_url = object.main_img.path
