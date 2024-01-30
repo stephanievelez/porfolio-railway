@@ -29,4 +29,4 @@ model["model/signature"].upload(model_path)
 #model["data/train_and_test"].track_files("test.data")
 
 # top the session
-model.stop()
+#model.stop()
