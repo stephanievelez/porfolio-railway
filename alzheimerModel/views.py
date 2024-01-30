@@ -4,10 +4,13 @@ from .forms import AlzheimerModel
 from .models import Alzheimer
 from django.http import JsonResponse
 from fastai.vision.all import PILImage
-from .model import model
-from django.contrib.auth.decorators import login_required
+from .model import model, neptune
 
-from .model import neptune
+import pathlib #you need all 3 requirements.txt
+from fastai.learner import load_learner
+
+plt = platform.system()
+if plt == "Windows": pathlib.PosixPath = pathlib.PureWindowsPath
 
 # Create your views here.
 #@login_required
@@ -36,7 +39,11 @@ def myModel(request):
 #@login_required
 def make_prediction(request):
     """get the scoring parameters entered in the uploaded image and return the prediction"""
-    learner = neptune.model()
+    print(neptune.model())
+    path=neptune.model().download()
+    print(path)
+    learner = load_learner(path)
+    print(learner)
     #learner = model.load_learner("alzheimerModel/model/export.pkl") #this might change location once we deploy
     object = Alzheimer.objects.last()
     img_url = object.main_img.path
