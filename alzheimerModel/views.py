@@ -4,7 +4,7 @@ from .forms import AlzheimerModel
 from .models import Alzheimer
 from django.http import JsonResponse
 from fastai.vision.all import PILImage
-from .model import model, neptune
+from .model import model
 import platform
 import pathlib #you need all 3 requirements.txt
 from fastai.learner import load_learner
@@ -40,11 +40,8 @@ def myModel(request):
 def make_prediction(request):
     """get the scoring parameters entered in the uploaded image and return the prediction"""
     
-    path=neptune.model().download()
     
-    learner = load_learner(path)
-    
-    #learner = model.load_learner("alzheimerModel/model/export.pkl") #this might change location once we deploy
+    learner = model.load_learner("alzheimerModel/model/export.pkl") #this might change location once we deploy
     object = Alzheimer.objects.last()
     img_url = object.main_img.path
 
